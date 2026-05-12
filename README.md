@@ -18,9 +18,7 @@ Atender próximo cliente;
 Cancelar ( atender proximo) senha;
 Consultar posição na fila.
 
-Para guardar os dados, podemos usar ficheiros (Base de dados), porque provavelmente é mais
-simples do que usar base de dados, pois o tempo não será suficiente para fazer muitas
-pesquisas por fora .
+Para guardar os dados, podemos usar ficheiros (Base de dados).
 Achamos que este é um tema útil, não muito complicado e que dá para cumprir tudo o que o
 professor nos pediu.
 
