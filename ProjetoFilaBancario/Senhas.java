@@ -1,5 +1,5 @@
 public class Senhas {
-    private String numeroSenha; 
+    private int numeroSenha; 
     private String tipoSenha; // Normal, Prioritária
     private String tipoServico; //Atendimento geral, Abertura de conta, pedido credito, Outros Assuntos;
     private String formaAtendimento; // Presencial, Online
@@ -9,7 +9,7 @@ public class Senhas {
     private int tentativasDeChamadas; // Número de tentativas de chamadas para o atendiemnto
     private String estado; // Em espera, Em atendimento, Cancelada;
 
-    public Senhas (String numeroSenha, String tipoSenha, String TipoServico, String formaAtendimento,String data, String horaCriacao, String horaAtendimento, int tentativasDeChamadas, String estado) {
+    public Senhas (int numeroSenha, String tipoSenha, String TipoServico, String formaAtendimento,String data, String horaCriacao, String horaAtendimento, int tentativasDeChamadas, String estado) {
         this.numeroSenha = numeroSenha;
         this.tipoSenha = tipoSenha;
         this.tipoServico = TipoServico;
@@ -21,7 +21,7 @@ public class Senhas {
         this.estado = "Em espera"; 
     }
 
-    public String getNumeroSenha() {
+    public int getNumeroSenha() {
         return numeroSenha;
     }
 
