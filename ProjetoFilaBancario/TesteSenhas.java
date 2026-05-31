@@ -2,7 +2,7 @@
 
 public static void main (String [] args) {
     Senhas s1 = new Senhas ("P001", "Prioritario", "Abertura de conta", "Presencial", "12-05-2026",
-    "11:10","11:10", 0 , "Em atendimento" ;
+    "11:10","11:10", 0 , "Em atendimento") ;
 
      Senhas s2 = new Senhas ("N001", "Normal", "Pedido de Credito", "online", "13-05-2026",
     "11:30","12:00", 1 , "Em espera" );

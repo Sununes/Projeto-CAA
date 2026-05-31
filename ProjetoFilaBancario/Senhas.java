@@ -2,8 +2,8 @@ public class Senhas {
     private String numeroSenha; 
     private String tipoSenha; // Normal, Prioritária
     private String tipoServico; //Atendimento geral, Abertura de conta, pedido credito, Outros Assuntos;
-    private String formaRetiradaSenha; // Presencial, Online
-    private Strind    data; 
+    private String formaAtendimento; // Presencial, Online
+    private String data; 
     private String horaCriacao; // Hora em que a senha foi criada
     private String horaAtendimento; // Hora em que a senha foi atendida
     private int tentativasDeChamadas; // Número de tentativas de chamadas para o atendiemnto
@@ -14,7 +14,7 @@ public class Senhas {
         this.tipoSenha = tipoSenha;
         this.tipoServico = TipoServico;
         this.formaAtendimento = formaAtendimento;
-        this.data;
+        this.data = data;
         this.horaCriacao = horaCriacao;
         this.horaAtendimento = horaAtendimento;
         this.tentativasDeChamadas = 0; 
