@@ -100,7 +100,7 @@ public class Senhas {
     }
     int verificarTempoEspera;
     public void verificarTempoEspera() {
-     verificarTempoEspera = horaAtendimento - horaCriacao;
+     verificarTempoEspera = horaAtendimento - horaCriacao; // temos de usar outro metodo já que hora não é inteiro
     if (verificarTempoEspera > 30) {
         this.estado = "Cancelada";
 

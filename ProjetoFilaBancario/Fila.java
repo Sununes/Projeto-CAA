@@ -13,7 +13,7 @@ public class Fila {
          return inicio == null;
     }
     public void adicionarSenha(Senhas senha){
-        No novop = new No(senha);
+        No novo = new No(senha);
         if(filaVazia()){
             inicio = novo;
             fim = novo;
@@ -29,7 +29,7 @@ public class Fila {
                 return null;
             }
             Senhas senha = inicio.senha;
-            senha.marcarEmAtendimento();
+            senha.MarcarEmAtendimento();
             inicio = inicio.prox;
 
             if(inicio == null){
@@ -45,7 +45,7 @@ public class Fila {
             No auxiliar = inicio;
 
             while(auxiliar !=  null){
-                if(auxiliar.senha.getNumerosenha().equalsIgnoreCase(numeroSenha)){
+                if(auxiliar.senha.getNumeroSenha().equalsIgnoreCase(numeroSenha)){
                     return posicao;
                 }
                 posicao ++;
