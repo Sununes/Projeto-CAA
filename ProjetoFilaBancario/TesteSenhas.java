@@ -1,18 +1,18 @@
+public class TesteSenhas {
+    public static void main(String[] args) {
 
+        Senha s1 = new Senha("P001", Senha.TipoSenha.Prioritaria, Senha.TipoServico.Abertura_Conta,Senha.FormaRetiradaSenha.Presencial);
 
-      public static void main(String[] args) {
-        Senhas s1 = new Senhas(001, "Prioritario", "Abertura de conta", "Presencial", "12-05-2026",
-                "11:10", "11:10", 0, "Em atendimento");
+        Senha s2 = new Senha("N001", Senha.TipoSenha.Normal, Senha.TipoServico.Pedido_Credito, Senha.FormaRetiradaSenha.Online);
 
-        Senhas s2 = new Senhas(001, "Normal", "Pedido de Credito", "online", "13-05-2026",
-                "11:30", "12:00", 1, "Em espera");
+        Senha s3 = new Senha("N002", Senha.TipoSenha.Normal,  Senha.TipoServico.Atendimento_Geral,Senha.FormaRetiradaSenha.Presencial);
 
-        Senhas s3 = new Senhas(002, "Normal", "Atendiemnto geral", "presencial", "13-05-2026",
-                "11:45", "12:00", 4, "cancelado");
+        s1.marcarEmAtendimento();
+        s2.marcarComoAtendida();
+        s3.marcarAusencia();
 
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
-
-
     }
+}

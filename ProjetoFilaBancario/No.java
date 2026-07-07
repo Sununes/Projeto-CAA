@@ -1,7 +1,7 @@
 public class No {
-    public Senhas senha;
+    public Senha senha;
     public No prox;
-    public No(Senhas senha) {
+    public No(Senha senha) {
         this.senha = senha;
         this.prox = null;
     }
