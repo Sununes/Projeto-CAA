@@ -17,7 +17,7 @@ public class Fila {
         return inicio == null;
     }
 
-    public void adicionarSenha(Senhas senha) {
+    public void adicionarSenha(Senha senha) {
         No novo = new No(senha);
         if (filaVazia()) {
             inicio = novo;
@@ -30,11 +30,11 @@ public class Fila {
     }
     //Atender Proximo
 
-    public Senhas atenderProximo() {
+    public Senha atenderProximo() {
         if (filaVazia()) {
             return null;
         }
-        Senhas senha = inicio.senha;
+        Senha senha = inicio.senha;
         senha.MarcarEmAtendimento();
         inicio = inicio.prox;
 
@@ -77,12 +77,12 @@ public class Fila {
     }
     //Remover Senha
 
-    public Senhas remover() {
+    public Senha remover() {
         if (filaVazia()) {
             return null;
         }
-        Senhas senha = inicio.senha;
-        inicio = inicio.senha;
+        Senha senha = inicio.senha;
+        inicio = inicio.prox;
         if (inicio == null) {
             fim = null;
         }
