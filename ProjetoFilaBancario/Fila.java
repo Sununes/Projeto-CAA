@@ -35,7 +35,7 @@ public class Fila {
             return null;
         }
         Senha senha = inicio.senha;
-        senha.MarcarEmAtendimento();
+        senha.marcarEmAtendimento();
         inicio = inicio.prox;
 
         if (inicio == null) {
@@ -93,6 +93,15 @@ public class Fila {
         if (filaVazia()) {
             return false;
         }
+        if (inicio.senha.getNumeroSenha().equalsIgnoreCase(numeroSenha)) {
+            inicio = inicio.prox;
+            if (inicio == null) {
+                fim = null;
+            }
+            tamanho--;
+            return true;
+        }
+        return false;
     }
 
 }

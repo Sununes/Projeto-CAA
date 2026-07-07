@@ -1,18 +1,30 @@
+import javax.swing.SwingUtilities;
+
 public class TesteSenhas {
     public static void main(String[] args) {
+        // 1. Aqui continua a lógica de inicialização do seu sistema (ex: suas filas)
+        System.out.println("Inicializando o Sistema de Gestão Bancário...");
+        
+        // 2. Executa a Interface Gráfica de forma segura na thread do Swing
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                // Instancia e exibe a Televisão (Painel)
+                GuiTV tv = new GuiTV();
+                tv.setVisible(true);
+                
+                // Instancia e exibe o Totem de Impressão
+                TotemImpressao totem = new TotemImpressao();
+                totem.setVisible(true);
 
-        Senha s1 = new Senha("P001", Senha.TipoSenha.Prioritaria, Senha.TipoServico.Abertura_Conta,Senha.FormaRetiradaSenha.Presencial);
-
-        Senha s2 = new Senha("N001", Senha.TipoSenha.Normal, Senha.TipoServico.Pedido_Credito, Senha.FormaRetiradaSenha.Online);
-
-        Senha s3 = new Senha("N002", Senha.TipoSenha.Normal,  Senha.TipoServico.Atendimento_Geral,Senha.FormaRetiradaSenha.Presencial);
-
-        s1.marcarEmAtendimento();
-        s2.marcarComoAtendida();
-        s3.marcarAusencia();
-
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
+                // 3. Tela do Agente (Fica no computador interna do Caixa)
+                PainelAgente agente = new PainelAgente();
+                agente.setVisible(true);
+                agente.setLocation(500, 250);
+                
+                // Opcional: Se quiser que as janelas não fiquem exatamente uma em cima da outra na tela
+                totem.setLocation(tv.getX() - 250, tv.getY()); 
+            }
+        });
     }
 }
