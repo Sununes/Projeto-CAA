@@ -1,3 +1,4 @@
+package src.model;
 public class No {
     public Senha senha;
     public No prox;

@@ -1,3 +1,6 @@
+import src.model.Fila;
+import src.model.Senha;
+
 public class SistemaPrincipal {
 
     private Fila fila;

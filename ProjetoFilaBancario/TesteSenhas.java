@@ -1,5 +1,10 @@
 import javax.swing.SwingUtilities;
 
+
+import src.view.JanelaClient;
+import src.view.PainelAgente;
+import src.view.TotemImpressao;
+
 public class TesteSenhas {
     public static void main(String[] args) {
         // 1. Aqui continua a lógica de inicialização do seu sistema (ex: suas filas)
@@ -10,7 +15,7 @@ public class TesteSenhas {
             @Override
             public void run() {
                 // Instancia e exibe a Televisão (Painel)
-                GuiTV tv = new GuiTV();
+                JanelaClient tv = new JanelaClient();
                 tv.setVisible(true);
                 
                 // Instancia e exibe o Totem de Impressão
@@ -23,7 +28,7 @@ public class TesteSenhas {
                 agente.setLocation(500, 250);
                 
                 // Opcional: Se quiser que as janelas não fiquem exatamente uma em cima da outra na tela
-                totem.setLocation(tv.getX() - 250, tv.getY()); 
+                //totem.setLocation(tv.getX() - 250, tv.getY()); 
             }
         });
     }

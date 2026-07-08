@@ -1,3 +1,4 @@
+package src.view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -112,9 +113,5 @@ public class PainelAgente extends JFrame {
             "Senha " + senhaChamada + " chamada para o Guichê " + guicheSelecionado, 
             "Chamada Efetuada", 
             JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PainelAgente().setVisible(true));
     }
 }
