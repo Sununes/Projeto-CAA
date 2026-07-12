@@ -12,7 +12,7 @@ public class PainelAgente extends JFrame {
     
     // Construtor da Interface
     public PainelAgente() {
-        setTitle("Painel do Agente Bancário - Operação");
+        setTitle("Painel do Agente Bancário");
         setSize(400, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -22,11 +22,11 @@ public class PainelAgente extends JFrame {
         JPanel painelTopo = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 15));
         painelTopo.setBackground(new Color(240, 240, 240));
         
-        JLabel lblGuiche = new JLabel("Selecione seu Guichê:");
+        JLabel lblGuiche = new JLabel("Selecione seu balcão:");
         lblGuiche.setFont(new Font("Arial", Font.BOLD, 14));
         
         // Simula guichês de 1 a 5
-        Integer[] guiches = {1, 2, 3, 4, 5};
+        Integer[] guiches = {1, 2, 3};
         comboGuiche = new JComboBox<>(guiches);
         comboGuiche.setFont(new Font("Arial", Font.PLAIN, 14));
         
@@ -63,7 +63,7 @@ public class PainelAgente extends JFrame {
         painelCentro.add(Box.createRigidArea(new Dimension(0, 40)));
 
         // Bloco Inferior: Mostrar qual senha o agente está atendendo agora
-        JLabel lblTituloAtendimento = new JLabel("Em atendimento neste guichê:", SwingConstants.CENTER);
+        JLabel lblTituloAtendimento = new JLabel("Em atendimento neste balcão:", SwingConstants.CENTER);
         lblTituloAtendimento.setAlignmentX(Component.CENTER_ALIGNMENT);
         lblTituloAtendimento.setFont(new Font("Arial", Font.PLAIN, 12));
         
@@ -85,7 +85,7 @@ public class PainelAgente extends JFrame {
         });
     }
 
-    // Integração com as regras de Concepção e Análise de Algoritmos (CAA)
+    // Integração com as regras de (CAA)
     private void acaoChamarProximo() {
         int guicheSelecionado = (int) comboGuiche.getSelectedItem();
         
