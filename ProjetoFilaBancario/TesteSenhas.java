@@ -1,7 +1,6 @@
 import javax.swing.SwingUtilities;
 
-
-import src.view.JanelaClient;
+import src.view.GuiTV;
 import src.view.PainelAgente;
 import src.view.TotemImpressao;
 
@@ -15,9 +14,8 @@ public class TesteSenhas {
             @Override
             public void run() {
                 // Instancia e exibe a Televisão (Painel)
-                JanelaClient tv = new JanelaClient();
+                GuiTV tv = new GuiTV();
                 tv.setVisible(true);
-                
                 // Instancia e exibe o Totem de Impressão
                 TotemImpressao totem = new TotemImpressao();
                 totem.setVisible(true);

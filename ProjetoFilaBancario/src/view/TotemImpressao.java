@@ -6,7 +6,7 @@ import java.awt.*;
 public class TotemImpressao extends JFrame {
 
     public TotemImpressao() {
-        setTitle("Totem de Autoatendimento");
+        setTitle("Impressora de Senhas");
         setSize(450, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -79,7 +79,5 @@ public class TotemImpressao extends JFrame {
         JOptionPane.showMessageDialog(this, mensagemTalao, "Imprimindo Senha...", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new TotemImpressao().setVisible(true));
-    }
+
 }

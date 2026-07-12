@@ -65,7 +65,4 @@ public class GuiTV extends JFrame {
         Toolkit.getDefaultToolkit().beep();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new GuiTV().setVisible(true));
-    }
 }
