@@ -16,8 +16,10 @@ public class TesteSenhas {
                 // Instancia e exibe a Televisão (Painel)
                 GuiTV tv = new GuiTV();
                 tv.setVisible(true);
+                
                 // Instancia e exibe o Totem de Impressão
                 TotemImpressao totem = new TotemImpressao();
+                totem.registrarGuiTV(tv);
                 totem.setVisible(true);
 
                 // 3. Tela do Agente (Fica no computador interna do Caixa)

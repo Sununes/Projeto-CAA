@@ -40,7 +40,7 @@ public class PainelAgente extends JFrame {
         painelCentro.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         // Bloco de Monitoramento do Tamanho da Fila
-        lblStatusFila = new JLabel("Clientes aguardando: 4 normais | 1 prioritário");
+        lblStatusFila = new JLabel(String.format("Clientes aguardando: %d normais | %d prioritários", TotemImpressao.getTamanhoFilaNormal(), TotemImpressao.getTamanhoFilaPrioritaria()));
         lblStatusFila.setAlignmentX(Component.CENTER_ALIGNMENT);
         lblStatusFila.setFont(new Font("Arial", Font.ITALIC, 13));
         
@@ -85,32 +85,25 @@ public class PainelAgente extends JFrame {
         });
     }
 
-    // Integração com as regras de (CAA)
-    // Dentro da classe PainelAgente
-private void acaoChamarProximo() {
-    // 1. Qual é o guichê que está a chamar?
-    int guicheSelecionado = (int) comboGuiche.getSelectedItem();
-    
-    // 2. Pedimos ao Controller para processar a lógica (Algoritmo + Base de Dados)
-    // O controller devolve o código da senha ou "null" se a fila estiver vazia
-    String senhaChamada = controller.chamarProximaSenha(guicheSelecionado);
-    
-    // 3. Atualizamos a interface do Agente com o resultado
-    if (senhaChamada != null) {
-        // Mostra a senha no ecrã do agente
-        lblSenhaSendoAtendida.setText(senhaChamada);
-        
-        // Atualiza a contagem de pessoas na fila (métodos que você criará no controller)
-        int qtdNormal = controller.getTamanhoFilaNormal();
-        int qtdPrioritaria = controller.getTamanhoFilaPrioritaria();
-        lblStatusFila.setText(String.format("Clientes aguardando: %d normais | %d prioritários", qtdNormal, qtdPrioritaria));
-        
-    } else {
-        // Se devolveu null, significa que as filas (normal e prioritária) estão vazias
-        JOptionPane.showMessageDialog(this, 
-            "Não há clientes em espera no momento.", 
-            "Fila Vazia", 
-            JOptionPane.WARNING_MESSAGE);
+    private void acaoChamarProximo() {
+        int guicheSelecionado = (int) comboGuiche.getSelectedItem();
+
+        String senhaChamada = TotemImpressao.chamarProximaSenha(guicheSelecionado);
+
+        if (senhaChamada != null) {
+            lblSenhaSendoAtendida.setText(senhaChamada);
+            int qtdNormal = TotemImpressao.getTamanhoFilaNormal();
+            int qtdPrioritaria = TotemImpressao.getTamanhoFilaPrioritaria();
+            lblStatusFila.setText(String.format("Clientes aguardando: %d normais | %d prioritários", qtdNormal, qtdPrioritaria));
+            JOptionPane.showMessageDialog(this,
+                String.format("Senha %s chamada para o guichê %d", senhaChamada, guicheSelecionado),
+                "Senha Chamada",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                "Não há clientes em espera no momento.",
+                "Fila Vazia",
+                JOptionPane.WARNING_MESSAGE);
+        }
     }
-}
 }

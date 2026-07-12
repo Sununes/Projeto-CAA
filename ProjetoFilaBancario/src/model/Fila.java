@@ -18,6 +18,10 @@ public class Fila {
         return inicio == null;
     }
 
+    public int getTamanho() {
+        return tamanho;
+    }
+
     public void adicionarSenha(Senha senha) {
         No novo = new No(senha);
         if (filaVazia()) {
@@ -30,6 +34,13 @@ public class Fila {
         tamanho++;
     }
     //Atender Proximo
+
+    public Senha verProximo() {
+        if (filaVazia()) {
+            return null;
+        }
+        return inicio.senha;
+    }
 
     public Senha atenderProximo() {
         if (filaVazia()) {
