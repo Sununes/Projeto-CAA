@@ -86,32 +86,31 @@ public class PainelAgente extends JFrame {
     }
 
     // Integração com as regras de (CAA)
-    private void acaoChamarProximo() {
-        int guicheSelecionado = (int) comboGuiche.getSelectedItem();
-        
-        /* * LÓGICA DO PROJETO A IMPLEMENTAR:
-         * 1. Verificar se a fila prioritária possui elementos (.isEmpty() ou tamanho > 0).
-         * 2. Se houver, remover da fila prioritária (.dequeue() ou .remove()).
-         * 3. Senão, remover da fila normal.
-         * 4. Se ambas estiverem vazias, exibir mensagem que não há clientes.
-         */
-        
-        // Simulação de alteração de estado:
-        String senhaChamada = "P-003"; // Exemplo vindo da sua Fila Prioritária
-        
-        // Atualiza a própria interface do Agente
+    // Dentro da classe PainelAgente
+private void acaoChamarProximo() {
+    // 1. Qual é o guichê que está a chamar?
+    int guicheSelecionado = (int) comboGuiche.getSelectedItem();
+    
+    // 2. Pedimos ao Controller para processar a lógica (Algoritmo + Base de Dados)
+    // O controller devolve o código da senha ou "null" se a fila estiver vazia
+    String senhaChamada = controller.chamarProximaSenha(guicheSelecionado);
+    
+    // 3. Atualizamos a interface do Agente com o resultado
+    if (senhaChamada != null) {
+        // Mostra a senha no ecrã do agente
         lblSenhaSendoAtendida.setText(senhaChamada);
         
-        // Atualiza o contador de status interno
-        lblStatusFila.setText("Clientes aguardando: 4 normais | 0 prioritários");
+        // Atualiza a contagem de pessoas na fila (métodos que você criará no controller)
+        int qtdNormal = controller.getTamanhoFilaNormal();
+        int qtdPrioritaria = controller.getTamanhoFilaPrioritaria();
+        lblStatusFila.setText(String.format("Clientes aguardando: %d normais | %d prioritários", qtdNormal, qtdPrioritaria));
         
-        // MENSAGEM IMPORTANTE PARA O GRUPO:
-        // Aqui vocês farão a ligação para atualizar a TV:
-        // InstanciaGlobalDaTv.atualizarPainel(senhaChamada, guicheSelecionado, próximaDaFila);
-        
+    } else {
+        // Se devolveu null, significa que as filas (normal e prioritária) estão vazias
         JOptionPane.showMessageDialog(this, 
-            "Senha " + senhaChamada + " chamada para o Guichê " + guicheSelecionado, 
-            "Chamada Efetuada", 
-            JOptionPane.INFORMATION_MESSAGE);
+            "Não há clientes em espera no momento.", 
+            "Fila Vazia", 
+            JOptionPane.WARNING_MESSAGE);
     }
+}
 }
